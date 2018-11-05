@@ -76,9 +76,9 @@ Requires token: Yes
   
 ##### GET
 
-- Lookup the available menus.
-Required fields: none
-Required token: Yes
+- Lookup the available menus.  
+Required fields: none  
+Required token: Yes  
 
 ### `/shoppingcarts`
    
