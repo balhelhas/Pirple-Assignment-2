@@ -36,8 +36,8 @@ Requires token: Yes
 ##### PUT
 
 - Update an existing user.  
-Required fields: (in JSON payload) `email`  
-Optional fields: (in JSON payload) `name`, `password` (at least one must be specified)  
+Required fields: (in query string) `email`  
+Optional fields: (in JSON payload) `name`, `password`, `address` (at least one must be specified)  
 Requires token: Yes
 
 ##### DELETE
@@ -84,34 +84,34 @@ Required token: Yes
    
 ##### POST
 
-- Add a new product item, only a user admin can do it.  
-Required fields: (in JSON payload) `sku`, `name`  
+- Add a new item to user shopping cart, only a logged in user can do it.  
+Required fields: (in JSON payload) `menu`, `quantity`  
 Requires token: Yes 
 
 ##### GET
 
-- Returns all product is no fields specified, if `sku` specified get single product and if `reviews` is specified gets products reviews.  
-Required fields: none  
-Optional fields: (in query string)`sku`, (in headers)`reviews`  
+- Returns the shopping cart of the user.  
+Required fields: (in query string) `email`   
 Requires token: Yes
 
 ##### DELETE
 
-- Remove a review, only the user how posted the review can do it.  
-Required fields: (in query string)`email`, (in headers)`sku`  
+- Removes a item from the user shopping cart.  
+Required fields: (in query string) `email`, (in JSON payload) `item`  
 Requires token: Yes 
 
 ##### PUT 
 
-- Extend a token for a user.  
-Required fields: (in JSON payload) `email`, `extend`  
+- Updates a item of the user shopping cart.  
+Required fields: (in query string) `email`  
+Optional fields: (in JSON payload) `menu`, `quantity` (at least one must be specified)
 Requires token: Yes 
 
 ### `/orders`
 
 ##### POST
 
-- Create a new product review.  
+- Create a order for the items on the shopping cart.  
 Required fields: (in query string) `email`  
 Requires token: Yes  
 
